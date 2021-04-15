@@ -1,15 +1,22 @@
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import SEO from '../components/SEO';
 
 export default function SingleSlicemasterPage({ data: { slicemaster } }) {
   return (
-    <div>
-      <Img fluid={slicemaster.image.asset.fluid} />
+    <>
+      <SEO
+        title={`${slicemaster.name}`}
+        image={slicemaster?.image?.asset?.asset?.src}
+      />
       <div>
-        <h2 className="mark">{slicemaster.name}</h2>
-        <p>{slicemaster.description}</p>
+        <Img fluid={slicemaster.image.asset.fluid} />
+        <div>
+          <h2 className="mark">{slicemaster.name}</h2>
+          <p>{slicemaster.description}</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,12 +1,21 @@
 import { graphql } from 'gatsby';
 import PizzasList from '../components/PizzaList';
 import ToppingsFilter from '../components/ToppingsFilter';
+import SEO from '../components/SEO';
 
 export default function PizzasPage({ data, pageContext }) {
   console.log('@data: ', data);
   const pizzas = data.pizzas.nodes;
   return (
     <>
+      <SEO
+        title={
+          pageContext.topping
+            ? `Pizzas with ${pageContext.topping}`
+            : 'All Pizzas'
+        }
+        image={pizzas.image?.asset?.fluid?.src}
+      />
       <ToppingsFilter activeTopping={pageContext.topping} />
       <PizzasList pizzas={pizzas} />
     </>
