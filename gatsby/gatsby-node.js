@@ -22,7 +22,7 @@ async function turnPizzasIntoPages({ graphql, actions }) {
   data.pizzas.nodes.forEach((pizza) => {
     // console.log(`@creating a page for ${pizza.name}`);
     actions.createPage({
-      path: `pizza/${pizza.slug.current}`,
+      path: `/pizza/${pizza.slug.current}`,
       component: pizzaTemplate,
       context: {
         slug: pizza.slug.current,
@@ -112,6 +112,19 @@ async function turnSlicemastersIntoPages({ graphql, actions }) {
       }
     }
   `);
+
+  // 2. Make individual pages for each slicemaster
+  data.slicemasters.nodes.forEach((slicemaster) => {
+    console.log(`@creating a page for ${slicemaster.name}`);
+    actions.createPage({
+      path: `/slicemaster/${slicemaster.slug.current}`,
+      component: path.resolve('./src/templates/Slicemaster.js'),
+      context: {
+        slug: slicemaster.slug.current,
+      },
+    });
+  });
+
   // 3. Figure out how many slicmasters and how many per page
   const pageSize = parseInt(process.env.GATSBY_PAGE_SIZE);
   const pageCount = Math.ceil(data.slicemasters.totalCount / pageSize);
