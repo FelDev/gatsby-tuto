@@ -41,6 +41,15 @@ exports.handler = async (event, context) => {
   // await wait(5000);
   // validate the data
   const body = JSON.parse(event.body);
+
+  // HoneyPot
+  if (body.mapleSyrup) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Boop beep bop good bye bot ERR 3244' }),
+    };
+  }
+
   const requiredFields = ['email', 'name', 'order'];
   for (const field of requiredFields) {
     if (!body[field]) {
