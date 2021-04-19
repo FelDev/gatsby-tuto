@@ -42,7 +42,7 @@ exports.handler = async (event, context) => {
   // validate the data
   const body = JSON.parse(event.body);
 
-  // HoneyPot
+  // Honey Pot
   if (body.mapleSyrup) {
     return {
       statusCode: 400,
