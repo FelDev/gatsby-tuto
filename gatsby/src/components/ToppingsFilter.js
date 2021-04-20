@@ -28,8 +28,6 @@ const ToppingsStyles = styled.div`
 `;
 
 function countPizzasInToppings(pizzas) {
-  console.log('@pizzas: ', pizzas);
-
   const counts = pizzas
     .map((pizza) => pizza.toppings)
     .flat()
@@ -71,12 +69,8 @@ export default function ToppingsFilter({ activeTopping }) {
       }
     }
   `);
-  console.clear();
-  console.log('@toppings : ', toppings);
-  // console.log('@pizzas: ', pizzas);
 
   const toppingsWithCounts = countPizzasInToppings(pizzas.nodes);
-  console.log('@toppingsWithCounts: ', toppingsWithCounts);
 
   return (
     <ToppingsStyles>

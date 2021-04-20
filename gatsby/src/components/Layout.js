@@ -25,7 +25,6 @@ const ContentStyles = styled.div`
 `;
 
 export default function Layout({ children }) {
-  // console.log('@props: ', props);
   return (
     <>
       <GlobalStyles />

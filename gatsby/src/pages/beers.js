@@ -23,7 +23,6 @@ const SingleBeerGridStyles = styled.div`
 `;
 
 export default function BeersPage({ data }) {
-  console.log('@data: ', data);
   const beers = data.beers.nodes;
   return (
     <>
@@ -31,7 +30,6 @@ export default function BeersPage({ data }) {
       <h2>We have {beers.length} beers available!</h2>
       <BeerGridStyles>
         {beers.map((beer) => {
-          console.log('@beer: ', beer);
           const rating = Math.round(beer.rating.average);
           return (
             <SingleBeerGridStyles key={beer.id}>

@@ -22,8 +22,6 @@ const PizzaStyles = styled.div`
 `;
 
 function SinglePizza({ pizza }) {
-  console.log('@pizza: ', pizza);
-
   return (
     <PizzaStyles>
       <Link to={`/pizza/${pizza.slug.current}`}>
@@ -39,7 +37,6 @@ function SinglePizza({ pizza }) {
 }
 
 export default function PizzasList({ pizzas }) {
-  console.log('@pizzas: ', pizzas);
   // const pizzas = data.pizzas.nodes;
   return (
     <PizzaGridStyles>

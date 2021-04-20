@@ -28,7 +28,6 @@ export default function usePizza({ pizzas, values }) {
   // 4. Submit the order to serverless functions
   async function submitOrder(e) {
     e.preventDefault();
-    console.log('@e: ', e);
     setLoading(true);
     setError(null);
     setMessage(null);
@@ -40,7 +39,6 @@ export default function usePizza({ pizzas, values }) {
       email: values.email,
       mapleSyrup: values.mapleSyrup,
     };
-    console.log('@body: ', body);
     const res = await fetch(
       `${process.env.GATSBY_SERVERLESS_BASE}/placeOrder`,
       {
@@ -51,7 +49,6 @@ export default function usePizza({ pizzas, values }) {
         body: JSON.stringify(body),
       }
     );
-    console.log('@res: ', res);
 
     const text = JSON.parse(await res.text());
     // check if everything worked
