@@ -115,7 +115,7 @@ async function turnSlicemastersIntoPages({ graphql, actions }) {
 
   // 2. Make individual pages for each slicemaster
   data.slicemasters.nodes.forEach((slicemaster) => {
-    console.log(`@creating a page for ${slicemaster.name}`);
+    // console.log(`@creating a page for ${slicemaster.name}`);
     actions.createPage({
       path: `/slicemaster/${slicemaster.slug.current}`,
       component: path.resolve('./src/templates/Slicemaster.js'),
