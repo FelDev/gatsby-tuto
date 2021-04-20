@@ -43,13 +43,14 @@ export default function Pagination({
 
   return (
     <PaginationStyles>
-      <Link disabled={!hasPrevPage} to={`/${base}/${prevPage}`}>
+      <Link disabled={!hasPrevPage} to={`${base}/${prevPage}`}>
         ⬅️ Prev
       </Link>
       {Array.from({ length: totalPages }).map((_, i) => (
         <Link
           className={currentPage === i + 1 ? 'current' : ''}
           to={`${base}/${i + 1}`}
+          key={`page${i}`}
         >
           {i + 1}
         </Link>
